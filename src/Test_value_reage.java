@@ -45,7 +45,6 @@ public class Test_value_reage {
 		//20200807.page-138
 		//TestVector();
 		//TestArraySort();
-		
 	}
 	
 	private static void TestArraySort() 
