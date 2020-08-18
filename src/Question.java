@@ -9,20 +9,86 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.Set;
 import java.util.Vector;
-
 import de.mirkosertic.bytecoder.classlib.Array;
 
-public class Question 
+public class Question
 {
-
+	static Hashtable htNumbers = new Hashtable();	
 	public static void main(String[] args) 
 	{
-		Test1();
+		//Test1();
 		//Test2();
 		//Test3();
 		//Test4();
+		//Test5();
+		//Test6();
+		//Test7();
+		//Test8();
+		//Test9();
+	}
+
+	private static void Test9()
+	{
+		String str = "420";
+		str += 42;
+		System.out.println("字串相加=42042");
+		System.out.println(str);
+	}
+
+	private static void Test8()
+	{
+		htNumbers.put("one",new Integer(1));
+		htNumbers.put("two",new Integer(2));
+		htNumbers.put("three",new Integer(3));
+		System.out.println("確認table是否有值");
+		System.out.println(htNumbers.containsValue(4));
+	}
+
+	private static void Test7()
+	{
+		htNumbers.put("one",new Integer(1));
+		htNumbers.put("two",new Integer(2));
+		htNumbers.put("three",new Integer(3));
+		System.out.println("印出大小：");
+		System.out.println(htNumbers.size());
+	}
+
+	private static void Test6()
+	{
 		
+		htNumbers.put("one",new Integer(1));
+		htNumbers.put("two",new Integer(2));
+		htNumbers.put("three",new Integer(3));
+		//forEach(Key名稱,Value名稱)->引用至後面
+		System.out.println("使用：htNumbers.forEach((v,k)->System.out.println(v+\",\"+k));");
+		htNumbers.forEach((v,k)->System.out.println(v+","+k));
+		System.out.println("使用for迴圈");
+		System.out.println("先宣告Set<String> keys = htNumbers.keySet();");
+		Set<String> keys = htNumbers.keySet();
+        for(String key: keys)
+        {
+            System.out.println("Value of "+key+" is: "+htNumbers.get(key));
+        }
+
+	}
+
+	private static void Test5()
+	{
+		int start = 50;
+		int end = 100;
+		int sum = 0;
+		for(int i=start;i<=end;i++)
+		{
+			if(i%3==0&&i%2!=0)
+			{
+				sum+=i;
+			}
+		}	
+		System.out.println(sum);
 	}
 
 	private static void Test4()
@@ -119,6 +185,5 @@ public class Question
 			e.printStackTrace();
 		}
 	}
-	
 }
 
