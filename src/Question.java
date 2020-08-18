@@ -1,3 +1,11 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -10,10 +18,11 @@ public class Question
 
 	public static void main(String[] args) 
 	{
-		//Test1();
+		Test1();
 		//Test2();
 		//Test3();
-		Test4();
+		//Test4();
+		
 	}
 
 	private static void Test4()
@@ -83,8 +92,32 @@ public class Question
 
 	private static void Test1()
 	{
-		
-		
+		String path = "source/";
+		File f = new File(path+"Read.txt");
+		try
+		{
+			BufferedReader br = new BufferedReader(new FileReader(f));
+			String line = br.readLine();
+			int File_num = 0;
+			while (line != null)
+			{	
+				File add_f = new File(path+"abc-"+File_num+".txt");
+				add_f.createNewFile();
+				File_num++;
+				//FileWriter(檔案名稱,布林值(true=接續之前檔案 false=覆蓋之前檔案))
+				BufferedWriter wr = new BufferedWriter(new FileWriter(add_f,false));
+				wr.append(line);
+				System.out.println("檔案："+add_f.getName()+" 寫入資料="+line);
+				wr.close();
+				//一次讀入一行資料
+				line = br.readLine(); 
+			}
+			br.close();
+		} 
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
 	}
 	
 }
