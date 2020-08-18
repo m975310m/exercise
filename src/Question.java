@@ -29,6 +29,7 @@ public class Question
 		//Test7();
 		//Test8();
 		//Test9();
+		//記得複習
 	}
 
 	private static void Test9()
