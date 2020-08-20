@@ -1,3 +1,4 @@
+package com.exercise.commandLine;
 public class CommandLineArg 
 {
 	public static void main(String[] args) 

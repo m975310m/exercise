@@ -1,3 +1,4 @@
+package com.exercise.test;
 import java.nio.file.attribute.AclEntry.Builder;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,9 +8,7 @@ import java.util.Scanner;
 import java.util.Vector;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import javax.xml.crypto.dsig.keyinfo.PGPData;
-
 
 public class Test_value_reage {
 
