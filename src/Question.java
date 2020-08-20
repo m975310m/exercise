@@ -32,7 +32,7 @@ public class Question
 		//記得複習
 	}
 
-	private static void Test9()
+	public static void Test9()
 	{
 		String str = "420";
 		str += 42;

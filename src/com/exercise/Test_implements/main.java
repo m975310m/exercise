@@ -4,8 +4,8 @@ public class main
 {
 	public static void main(String[] args) 
 	{
-		//Animal();
-		CShape();
+		Animal();
+		//CShape();
 	}
 
 	private static void CShape()

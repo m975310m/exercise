@@ -11,5 +11,5 @@ public class Cat implements animal
 	public String expert() 
 	{
 		return "爬牆";
-	}	
+	}
 }
