@@ -19,7 +19,7 @@ public class DesError
 	//StringIndexOutOfBoundsException --> 此異常由 String方法拋出，指示索引或者為負，或者超出字元串的大小。對諸如 charAt 的一些方法，當索引等於字元串的大小時，也會拋出該異常
 	
 	public static void main(String[] args)
-	{
+	{	
 		//NullPointerException
 		//		String word = null;
 		//		System.out.println(word.equals("haha"));

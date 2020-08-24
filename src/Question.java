@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -30,6 +31,54 @@ public class Question
 		//Test8();
 		//Test9();
 		//記得複習
+		//Test10();
+		//Test11();
+		//Test12();
+	}
+
+	private static void Test12() 
+	{
+		String A = "100B";
+		String B = "50";
+		try
+		{
+			System.out.println(Integer.valueOf(A)+Integer.valueOf(B));
+		}
+		catch(NumberFormatException e) 
+		{
+			System.err.println("文字轉數字錯誤!!");
+		}
+	}
+
+	private static void Test11()
+	{
+		TestClass t1 = new TestClass();
+		TestClass t2 = new TestClass();
+		t1.add();
+		t2.add();
+		System.out.println("a1: count is="+t1.num);
+	    System.out.println("a2: count is="+t2.num);
+	}
+
+	private static int Test10_1(boolean a) 
+	{
+		try
+		{
+			if(a)
+			{
+				return 1;
+			}
+		}
+		finally 
+		{
+			System.out.println("一定執行finally");
+		}
+		return 0;
+	}
+	
+	private static void Test10() 
+	{
+		System.out.println(Test10_1(false));
 	}
 
 	public static void Test9()
@@ -185,6 +234,16 @@ public class Question
 		{
 			e.printStackTrace();
 		}
+	}
+}
+
+//實際上操作的卻是同一區塊，證明 static 變數不是跟其他同 class 的元素一起放在heap區，而是獨立放在靜態區
+class TestClass 
+{
+	static int num = 0;
+	public void add()
+	{
+		num++;
 	}
 }
 
