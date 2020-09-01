@@ -10,14 +10,20 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Map;
+import java.util.Random;
+import java.util.Scanner;
 import java.util.Set;
 import java.util.Vector;
+
+import org.apache.commons.lang.text.StrBuilder;
 import de.mirkosertic.bytecoder.classlib.Array;
 
 public class Question
 {
+	int i;
 	static Hashtable htNumbers = new Hashtable();	
 	public static void main(String[] args) 
 	{
@@ -34,6 +40,128 @@ public class Question
 		//Test10();
 		//Test11();
 		//Test12();
+		//Test13();
+		//Test14();
+		//Test15();
+		//Test16();
+		//Test17();
+		//Test18();
+		//Test19("123","33");
+		
+		//this是指class裡面的變數 不是帶進去使用的變數!
+		//Test_this t = new Test_this();
+		//t.thisFunction(300);
+	}
+	
+	private static void Test19(String a,String b) 
+	{
+		try
+		{
+			int c = Integer.valueOf(a)+Integer.valueOf(b);
+			System.out.println(c);
+		}
+		catch(NumberFormatException ne)
+		{
+			System.err.println("格式錯誤!");
+		}
+	}
+
+	private static void Test18() 
+	{
+		A:
+		for(int i=0;i<=10;i++) 
+		{
+			System.out.print("I="+i);
+			B:
+			for(int j=0;j<=10;j++)
+			{
+				System.out.print(","+j);
+				if(i>5&&j==5)
+				{
+					break B;
+				}
+			}
+			System.out.println();
+		}
+	}
+	
+	private static void Test17() 
+	{
+		B b = new B();
+		System.out.println(b.getInt(10));
+	}
+
+	private static void Test16()
+	{
+		//宣告成null 不等於宣告一個空陣列
+		String[] str_array = {};
+		//等同於上面這句String[] str_array = new String[0];
+		System.out.println(str_array.length);
+	}
+
+	private static void Test15()
+	{
+		Random r=new Random();
+		int Ans = r.nextInt(100)+1;
+		System.out.println("答案為"+Ans);
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("請輸入數字1~100");
+		String user_in = sc.next();
+		while(!user_in.equals("end"))
+		{
+			try 
+			{
+				if(Integer.valueOf(user_in)==Ans)
+				{
+					System.out.println("答對!");
+					break;
+				}
+				else if(Integer.valueOf(user_in)>Ans)
+				{
+					System.out.println("大!");
+				}
+				else if(Integer.valueOf(user_in)<Ans)
+				{
+					System.out.println("小!");
+				}
+			}
+			catch(NumberFormatException e)
+			{
+				System.err.println("您輸入的資料非數值");
+			}
+			System.out.println("請輸入數字1~100");
+			user_in = sc.next();
+		}
+	}
+
+	private static void Test14()
+	{
+		//ArrayLisy轉Array Array轉ArrayList
+		ArrayList<Integer> arraylist = new ArrayList<Integer>();
+		arraylist.add(1);
+		arraylist.add(3);
+		arraylist.add(4);
+		arraylist.add(2);
+		arraylist.add(7);
+		arraylist.add(9);
+		System.out.println(arraylist);
+		Integer[] array = (Integer[]) arraylist.toArray(new Integer[0]);
+		for(int num:arraylist)
+		{
+			System.out.println(num);
+		}
+	}
+
+	private static void Test13() 
+	{
+		Set set = new HashSet();
+		set.add("A");
+		set.add("B");
+		set.add("C");
+		set.add("A");
+		System.out.println("SET不會儲存重放資料");
+		System.out.println(set);
 	}
 
 	private static void Test12() 
@@ -47,6 +175,7 @@ public class Question
 		catch(NumberFormatException e) 
 		{
 			System.err.println("文字轉數字錯誤!!");
+			System.out.println(e);
 		}
 	}
 
@@ -135,6 +264,7 @@ public class Question
 		{
 			if(i%3==0&&i%2!=0)
 			{
+				System.out.println(i);
 				sum+=i;
 			}
 		}	
@@ -247,3 +377,13 @@ class TestClass
 	}
 }
 
+class A
+{
+	protected int getInt(int i){return i;}
+}
+class B extends A
+{
+//	public int getInt(int i){return i;}
+//	private int getInt(long i){return (int)i;}
+	protected int getInt(long i){return (int)i;}
+}

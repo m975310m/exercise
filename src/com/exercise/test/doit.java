@@ -2,8 +2,10 @@ package com.exercise.test;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -13,6 +15,7 @@ import java.util.Vector;
 import org.apache.hc.core5.http.impl.IncomingEntityDetails;
 import de.mirkosertic.bytecoder.classlib.Array;
 import io.reactivex.internal.observers.ForEachWhileObserver;
+import net.sf.json.util.NewBeanInstanceStrategy;
 
 public class doit
 {
@@ -22,7 +25,7 @@ public class doit
 		//Q2();
 		//Q3();
 		//Q4();
-		Q5();
+		//Q5();
 	}
 	
 	private static void Q5() 
@@ -66,7 +69,6 @@ public class doit
 		hashtable.put("for",new Integer(4));
 		hashtable.put("five",new Integer(5));
 		hashtable.forEach((k,v)->System.out.println("K："+k+" V："+v));
-		
 	}
 
 
@@ -112,5 +114,4 @@ public class doit
 			// TODO: handle exception
 		}
 	}
-	
 }
