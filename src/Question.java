@@ -18,8 +18,16 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.Vector;
 
+import javax.swing.event.HyperlinkEvent;
+
+import org.apache.axis.utils.StringUtils;
+import org.apache.commons.lang.Validate;
 import org.apache.commons.lang.text.StrBuilder;
+import org.omg.CORBA.portable.ValueOutputStream;
+import org.springframework.cglib.transform.impl.InterceptFieldTransformer;
+
 import de.mirkosertic.bytecoder.classlib.Array;
+import net.sf.ezmorph.array.IntArrayMorpher;
 
 public class Question
 {
@@ -46,23 +54,60 @@ public class Question
 		//Test16();
 		//Test17();
 		//Test18();
-		//Test19("123","33");
-		
+		//System.out.println(Test19("212","133"));
+		//Test20();
+		//Test21();
 		//this是指class裡面的變數 不是帶進去使用的變數!
 		//Test_this t = new Test_this();
 		//t.thisFunction(300);
 	}
 	
-	private static void Test19(String a,String b) 
+	//Vector排序
+	private static void Test21() 
 	{
-		try
+		Vector v = new Vector();
+		v.addElement("b");
+		v.addElement("a");
+		v.addElement("c");
+		v.addElement("d");
+		System.out.println("排序前="+v);
+		//v.sort(null);
+		Collections.sort(v);
+		System.out.println("排序後="+v);
+		String[] array = new String[v.size()];
+		for(int i=0;i<array.length;i++)
 		{
-			int c = Integer.valueOf(a)+Integer.valueOf(b);
-			System.out.println(c);
+			array[i] = v.get(i).toString();
 		}
-		catch(NumberFormatException ne)
+		System.out.println("轉成Array輸出="+Arrays.toString(array));
+	}
+	
+	private static void Test20() 
+	{
+		ArrayList<Integer> a = new ArrayList<Integer>();
+		a.add(2);
+		a.add(2);
+		a.add(1);
+		a.add(3);
+		a.add(1);
+		a.add(3);
+		Integer[] array = a.toArray(new Integer[0]);
+		System.out.println("轉Array輸出="+Arrays.toString(array));
+		Arrays.sort(array);
+		System.out.println("排序Array="+Arrays.toString(array));
+	}
+
+	private static int Test19(String a,String b) 
+	{
+		String num_Reg = "[\\d]*";
+		if(a.matches(num_Reg)&&b.matches(num_Reg))
 		{
-			System.err.println("格式錯誤!");
+			return Integer.valueOf(a)+Integer.valueOf(b);
+		}
+		else
+		{	
+			System.err.println("格式錯誤");
+			return -1;
 		}
 	}
 
@@ -224,7 +269,7 @@ public class Question
 		htNumbers.put("two",new Integer(2));
 		htNumbers.put("three",new Integer(3));
 		System.out.println("確認table是否有值");
-		System.out.println(htNumbers.containsValue(4));
+		System.out.println(htNumbers.contains(3));
 	}
 
 	private static void Test7()
@@ -284,8 +329,10 @@ public class Question
 		v.removeElement("line 2");
 		System.out.println(v);
 		//Q3
-		System.out.println(v.indexOf("line 3")==-1);
+		System.out.println(v.contains("line 3"));
+		System.out.println(v.indexOf("line 3")!=-1);
 		//Q4
+		v.insertElementAt("line 4.1",v.indexOf("line 5"));
 		v.insertElementAt("line 3.1",v.indexOf("line 4"));
 		System.out.println(v);
 		//Q5

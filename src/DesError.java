@@ -5,9 +5,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import de.mirkosertic.bytecoder.classlib.Array;
+
 public class DesError 
 {
-	//NoSuchMethodError --> JVM找尋不到使用方法
+	//NoSuchMethodError --> JVM找尋不到使用方法,JDK版本不一致
 	//NullPointerException --> 為定義變數初始值
 	//ClassNotFoundException --> 找不到指定Class
 	//FileNotFoundException --> 當試圖打開指定路徑名表示的檔案失敗時，拋出此異常
@@ -19,7 +21,12 @@ public class DesError
 	//StringIndexOutOfBoundsException --> 此異常由 String方法拋出，指示索引或者為負，或者超出字元串的大小。對諸如 charAt 的一些方法，當索引等於字元串的大小時，也會拋出該異常
 	
 	public static void main(String[] args)
-	{	
+	{
+		ArrayList<String> a = new ArrayList<String>();
+		a.add("1");
+		a.add("2");
+		String[] b = a.toArray(new String[0]);
+		System.out.println(Arrays.toString(b));
 		//NullPointerException
 		//		String word = null;
 		//		System.out.println(word.equals("haha"));
